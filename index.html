@@ -979,17 +979,17 @@ function finalizarWhatsapp() {
   const nombre = nombreCliente || 'Cliente';
   const total = carrito.reduce((s, x) => s + x.precio * x.qty, 0);
 
-  let msg = `🤘 *Pedido — TequeBulls* 🐂\n`;
-  msg += `👤 *${nombre}*\n\n`;
+  let msg = `*----- PEDIDO TEQUEBULLS -----*\n`;
+  msg += `👤 *Cliente: ${nombre}*\n\n`;
 
   carrito.forEach(item => {
     const sub = (item.precio * item.qty).toLocaleString('es-AR');
-    msg += `• ${item.nombre}\n`;
-    msg += `  Cantidad: ${item.qty}  →  $${sub} ARS\n\n`;
+    msg += `▪ ${item.nombre}\n`;
+    msg += `   x${item.qty}  →  $${sub} ARS\n\n`;
   });
 
-  msg += `📦 *Total: $${total.toLocaleString('es-AR')} ARS*\n\n`;
-  msg += `¡Hola! Soy ${nombre} y quiero hacer este pedido 😊🔥`;
+  msg += `*💰 TOTAL: $${total.toLocaleString('es-AR')} ARS*\n\n`;
+  msg += `Hola! Quisiera confirmar este pedido. Gracias! ✅`;
 
   window.open(`https://wa.me/${WA_NUM}?text=${encodeURIComponent(msg)}`, '_blank');
 }
